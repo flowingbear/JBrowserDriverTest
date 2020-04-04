@@ -1,4 +1,26 @@
 curl -H 'Authorization: token INSERTACCESSTOKENHERE' -H 'Accept: application/vnd.github.v3.raw' -O -L https://api.github.com/repos/owner/repo/contents/path
 
 
+docker pull mjalas/javafx
+
+mkdir dk
+cd dk
 curl -LJO https://github.com/flowingbear/JBrowserDriverTest/raw/master/target/capture-0.0-SNAPSHOT.jar
+curl -LJO https://raw.githubusercontent.com/flowingbear/JBrowserDriverTest/master/dockerfile
+cd ../
+docker build dk -t jbrowsertest:0.1
+
+
+docker run -i jbrowsertest:0.1 bash
+
+
+
+docker container create mjalas/javafx
+docker start javafx-node
+
+docker run -d --name topdemo mjalas/javafx /usr/bin/top -b
+
+docker run -d --name topdemo mjalas/javafx /usr/bin/top -b
+
+
+kubectl create deployment javafx-node --image=mjalas/javafx
