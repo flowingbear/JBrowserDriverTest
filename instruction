@@ -1,0 +1,4 @@
+curl -H 'Authorization: token INSERTACCESSTOKENHERE' -H 'Accept: application/vnd.github.v3.raw' -O -L https://api.github.com/repos/owner/repo/contents/path
+
+
+curl -LJO https://github.com/flowingbear/JBrowserDriverTest/raw/master/target/capture-0.0-SNAPSHOT.jar
