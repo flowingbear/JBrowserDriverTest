@@ -8,11 +8,12 @@ cd dk
 curl -LJO https://github.com/flowingbear/JBrowserDriverTest/raw/master/target/capture-0.0-SNAPSHOT.jar
 curl -LJO https://raw.githubusercontent.com/flowingbear/JBrowserDriverTest/master/dockerfile
 cd ../
+docker image rm jbrowsertest:0.1
 docker build dk -t jbrowsertest:0.1
 
 
 docker run -i jbrowsertest:0.1 bash
-
+java -jar capture-0.0-SNAPSHOT.jar
 
 
 docker container create mjalas/javafx
