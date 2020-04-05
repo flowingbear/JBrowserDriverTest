@@ -19,30 +19,36 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
+        <artifactId>maven-assembly-plugin</artifactId>
         <executions>
-            <execution>
-                <id>copy-dependencies</id>
-                <phase>prepare-package</phase>
-                <goals>
-                    <goal>copy-dependencies</goal>
-                </goals>
-                <configuration>
-                    <outputDirectory>
-                        ${project.build.directory}/libs
-                    </outputDirectory>
-                </configuration>
-            </execution>
+          <execution>
+            <id>create-my-bundle</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <archive>
+                <manifest>
+                  <mainClass>org.flowingbear.Main</mainClass>
+                </manifest>
+              </archive>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </execution>
         </executions>
-     </plugin>
+      </plugin>
       <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<archive>
-						<manifest>
+            <manifest>
+                <addClasspath>true</addClasspath>
 							<mainClass>org.flowingbear.Main</mainClass>
-						</manifest>
+            </manifest>
 					</archive>
 				</configuration>
 			</plugin>
