@@ -1,8 +1,9 @@
+package org.flowingbear;
 import org.openqa.selenium.WebDriver;
 import com.machinepublishers.jbrowserdriver.Timezone;
 import com.machinepublishers.jbrowserdriver.JBrowserDriver;
 import com.machinepublishers.jbrowserdriver.Settings;
-    
+
 public class Main {
   public static void main(String[] args) {
 
